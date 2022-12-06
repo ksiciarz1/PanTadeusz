@@ -15,27 +15,25 @@
 
     </header>
     <div>
-        <h2>Spis tresci</h2>
+        <h2>Spis tresci: </h2>
         <ul> <!-- OSTYLOWAĆ PRZY UŻYCIU BOOTSTRAP -->
-            <li><a href="./k1.html">Księga 1</a></li>
-            <li><a href="./k2.html">Księga 2</a></li>
-            <li><a href="./k3.html">Księga 3</a></li>
-            <li><a href="./k4.html">Księga 4</a></li>
-            <li><a href="./k5.html">Księga 5</a></li>
-            <li><a href="./k6.html">Księga 6</a></li>
-            <li><a href="./k7.html">Księga 7</a></li>
-            <li><a href="./k8.html">Księga 8</a></li>
-            <li><a href="./k9.html">Księga 9</a></li>
-            <li><a href="./k10.html">Księga 10</a></li>
-            <li><a href="./k11.html">Księga 11</a></li>
-            <li><a href="./k12.html">Księga 12</a></li>
+        <li><a href="./index.php">Strona Główna</a></li>
+            <?php 
+                for ($i=1; $i < 13; $i++) { 
+                    print("<li><a href='.\index.php?i=$i'>Księga $i</a></li>");
+                }
+            ?>
         </ul>
-        <img src="./Pan-Tadeusz--w-rezyserii-Andrzeja-Wajd.jpg" alt="Pan Tadeusz">
     </div>
     <div>
-        <?php
-            include_once("./k1.html");
-        ?> 
+        <?php 
+            $i = $_GET['i'];
+            if(isset($i)) {
+                include_once("k$i.html");
+            } else {
+                print('<img src="./Pan-Tadeusz--w-rezyserii-Andrzeja-Wajd.jpg" alt="Pan Tadeusz">');
+            }
+        ?>
     </div>
     <footer class="containter">
         <p>&copy; Kacper Siciarz</p>
